@@ -17,10 +17,14 @@ angular.module('integrationApp')
     var ScrollSync   = $famous["famous/inputs/ScrollSync"];
 
     GenericSync.register({
-      // "mouse" : MouseSync,
-      // "touch" : TouchSync,
+      "mouse" : MouseSync,
+      "touch" : TouchSync,
       "scroll": ScrollSync
     });
+
+
+
+    $scope.scrollHandler = new EventHandler();
 
     var _width = 320;
     var _height = 568;
@@ -108,20 +112,18 @@ angular.module('integrationApp')
 
     var tran = new Transitionable(0);
 
-    tran.set(1, {duration: 1000})
+    //tran.set(1, {duration: 1000})
 
     $scope.sync = new GenericSync(["mouse", "touch"], {direction: GenericSync.DIRECTION_Y});
 
-    var SCROLL_SENSITIVITY = 1200; //inverse
+    var SCROLL_SENSITIVITY = 1000; //inverse
     $scope.sync.on('update', function(data){
       var newVal = Math.max(0,
         Math.min(1, data.delta / SCROLL_SENSITIVITY + tran.get()));
       tran.set(newVal);
     });
 
-    $scope.eventHandler = new EventHandler();
-    // $scope.eventHandler.pipe($scope.sync);
-    Engine.pipe($scope.eventHandler)
+    $scope.scrollHandler.pipe($scope.sync);
 
     var _contents = [
       "One-way data binding",

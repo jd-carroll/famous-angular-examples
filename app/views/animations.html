@@ -1,7 +1,7 @@
 <fa-app  style="width: 320px; height: 568px; margin: 0;">
   <fa-view id="EnvelopeView" fa-pipe-to="eventHandler">
 
-    <fa-surface fa-size="[undefined, undefined]" class="background-dark">
+    <fa-surface fa-size="[undefined, undefined]" class="background-dark" fa-pipe-to="scrollHandler">
     </fa-surface>
 
     <!-- <fa-modifier fa-translate="positions.scrollText" fa-opacity="1 - functionThatReturnsATimelineValueBetween0And1()">
@@ -11,14 +11,14 @@
     <fa-modifier id="wholeThing" fa-size="[sizes.width, sizes.height]" fa-origin="[.5, .5]" fa-align="[.5, .5]">
     
       <fa-modifier fa-transform="testTransform">
-        <fa-surface class="center-square" fa-size="[2 * sizes.triangle + .5, 2 * sizes.triangle + .5]" ></fa-surface>
+        <fa-surface fa-pipe-to="scrollHandler" class="center-square" fa-size="[2 * sizes.triangle + .5, 2 * sizes.triangle + .5]" ></fa-surface>
       </fa-modifier>
 
       <fa-modifier
         fa-size="[2 * sizes.triangle, sizes.triangle]"
         fa-translate="positions.topTriangle" >
         <fa-modifier id="topMod" fa-origin="[.5, 1]" fa-align="[.5, 1]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="top-triangle light"></div>
           </fa-surface>
         </fa-modifier>
@@ -27,7 +27,7 @@
         fa-size="[2 * sizes.triangle, sizes.triangle]"
         fa-translate="positions.topTriangleInner" >
         <fa-modifier id="topModInner"  fa-origin="[.5, 0]" fa-align="[.5, 0]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="bottom-triangle"></div>
           </fa-surface>
         </fa-modifier>
@@ -37,7 +37,7 @@
         fa-size="[sizes.triangle, 2 * sizes.triangle]"
         fa-translate="positions.rightTriangle" >
         <fa-modifier id="rightMod" fa-origin="[0, .5]" fa-align="[0, .5]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="right-triangle light"></div>
           </fa-surface>
         </fa-modifier>
@@ -46,7 +46,7 @@
         fa-size="[sizes.triangle, 2 * sizes.triangle]"
         fa-translate="positions.rightTriangleInner" >
         <fa-modifier id="rightModInner" fa-origin="[1, .5]" fa-align="[1, .5]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="left-triangle"></div>
           </fa-surface>
         </fa-modifier>
@@ -56,7 +56,7 @@
         fa-size="[2 * sizes.triangle, sizes.triangle]"
         fa-translate="positions.bottomTriangle" >
         <fa-modifier id="bottomMod" fa-origin="[.5, 0]" fa-align="[.5, 0]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="bottom-triangle light"></div>
           </fa-surface>
         </fa-modifier>
@@ -65,7 +65,7 @@
         fa-size="[2 * sizes.triangle, sizes.triangle]"
         fa-translate="positions.bottomTriangleInner" >
         <fa-modifier id="bottomModInner" fa-origin="[.5, 1]" fa-align="[.5, 1]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="top-triangle"></div>
           </fa-surface>
         </fa-modifier>
@@ -75,7 +75,7 @@
         fa-size="[sizes.triangle, 2 * sizes.triangle]"
         fa-translate="positions.leftTriangle" >
         <fa-modifier id="leftMod" fa-origin="[1, .5]" fa-align="[1, .5]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="left-triangle light"></div>
           </fa-surface>
         </fa-modifier>
@@ -84,7 +84,7 @@
         fa-size="[sizes.triangle, 2 * sizes.triangle]"
         fa-translate="positions.leftTriangleInner" >
         <fa-modifier id="leftModInner" fa-origin="[0, .5]" fa-align="[0, .5]"  >
-          <fa-surface>
+          <fa-surface fa-pipe-to="scrollHandler">
             <div class="right-triangle"></div>
           </fa-surface>
         </fa-modifier>
